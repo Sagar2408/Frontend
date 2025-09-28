@@ -14,7 +14,7 @@ export const loginUser = async (email, password,role) => {
   const res = await fetch(`${API_BASE_URL}/login`, {
     method: "POST",
     headers: BASE_HEADERS,
-    body: JSON.stringify({ email, password ,role}),
+    body: JSON.stringify({ email, password}),
   });
 
   if (!res.ok) {
