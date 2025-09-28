@@ -10,11 +10,11 @@ const BASE_HEADERS = {
 };
 
 /*------------------------------LOGIN (fetch)---------------------------*/
-export const loginUser = async (email, password,role) => {
+export const loginUser = async (email, password) => {
   const res = await fetch(`${API_BASE_URL}/login`, {
     method: "POST",
     headers: BASE_HEADERS,
-    body: JSON.stringify({ email, password}),
+    body: JSON.stringify({ email, password}),// role add rna hai 
   });
 
   if (!res.ok) {
