@@ -1,17 +1,54 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
+import { BrowserRouter } from 'react-router-dom';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+import { AuthProvider } from './context/AuthContext';
+import { ApiProvider } from './context/ApiContext';
+import { ExecutiveActivityProvider } from './context/ExecutiveActivityContext';
+import {BreakTimerProvider } from './context/breakTimerContext'; // ✅ import your new context
+import { MasterProvider } from './context/MasterContext';
+import { CompanyProvider } from './context/CompanyContext';
+import { ThemeProvider } from './features/admin/ThemeContext';
+import { ProcessProvider } from './context/ProcessAuthContext';
+import { ProcessServiceProvider } from './context/ProcessServiceContext';
+import { BeepSettingsProvider } from './context/BeepSettingsContext';
+import { SearchProvider } from './context/SearchContext';
+import { PermissionProvider } from './context/PermissionContext';
+import { LoadingProvider } from './context/LoadingContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+root.render(
+  <BrowserRouter>
+  <ThemeProvider>
+    <BeepSettingsProvider>
+  <AuthProvider>
+    <ApiProvider>
+      <ExecutiveActivityProvider>
+     
+        <MasterProvider>
+          <CompanyProvider>
+          
+              <ProcessServiceProvider>
+                  <ProcessProvider>
+                   <BreakTimerProvider>
+                <SearchProvider>
+                  <PermissionProvider>
+                  <LoadingProvider>
+                <App />
+                </LoadingProvider>
+            </PermissionProvider>
+            </SearchProvider>
+            </BreakTimerProvider>
+               </ProcessProvider>
+            </ProcessServiceProvider>
+            </CompanyProvider>
+            </MasterProvider>
+     
+      </ExecutiveActivityProvider>
+    </ApiProvider>
+  </AuthProvider>
+  </BeepSettingsProvider>
+  </ThemeProvider>
+</BrowserRouter>
+);
